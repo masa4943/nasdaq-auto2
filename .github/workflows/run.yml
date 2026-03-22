@@ -28,7 +28,7 @@ jobs:
 
       - name: Install libraries
         run: |
-          pip install selenium pandas openpyxl webdriver-manager
+          pip install requests beautifulsoup4 pandas openpyxl
 
       - name: Run script
         run: python script.py
