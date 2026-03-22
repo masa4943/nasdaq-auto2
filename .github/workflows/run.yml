@@ -13,14 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y chromium-browser
-
-      - name: Remove old chromedriver
-        run: sudo rm -f /usr/bin/chromedriver
-
       - name: Install Python
         uses: actions/setup-python@v4
         with:
@@ -37,6 +29,6 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add nasdaq.xlsx
-          git commit -m "update nasdaq data" || echo "No changes"
+          git add market_data.xlsx
+          git commit -m "update market data" || echo "No changes"
           git push
