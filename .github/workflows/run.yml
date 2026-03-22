@@ -1,7 +1,9 @@
-name: Run Script
+name: Market Data Auto
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 22 * * *'  # 毎日実行（日本時間朝7時）
 
 permissions:
   contents: write
@@ -20,7 +22,7 @@ jobs:
 
       - name: Install libraries
         run: |
-          pip install requests beautifulsoup4 pandas openpyxl
+          pip install yfinance pandas openpyxl
 
       - name: Run script
         run: python script.py
