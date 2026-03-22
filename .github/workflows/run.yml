@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Chrome
+        run: |
+          sudo apt update
+          sudo apt install -y chromium-browser
+
       - name: Install Python
         uses: actions/setup-python@v4
         with:
@@ -26,7 +31,6 @@ jobs:
       - name: Run script
         run: python script.py
 
-      # 🔥 ここ追加（超重要）
       - name: Commit and push Excel file
         run: |
           git config --global user.name "github-actions"
